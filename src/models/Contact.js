@@ -1,3 +1,5 @@
+import { Id } from "./types/Id";
+
 class Contact {
   #id;
   #name;
@@ -6,7 +8,7 @@ class Contact {
   #picture;
 
   constructor(id, name, contact, email, picture) {
-    this.#id = id;
+    this.#id = new Id(id);
     this.#name = name;
     this.#contact = contact;
     this.#email = email;
@@ -14,12 +16,12 @@ class Contact {
   }
 
   static create(name, contact, email, picture) {
-    const generatedId = "defined";
+    const generatedId = Id.create();
     return new Contact(generatedId, name, contact, email, picture);
   }
 
   get id() {
-    return this.#id;
+    return this.#id.value;
   }
 
   get name() {
