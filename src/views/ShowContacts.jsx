@@ -5,6 +5,8 @@ import {
   ListItemAvatar,
   ListItemText,
   Typography,
+  Container,
+  Box,
 } from "@mui/material";
 import { observer } from "mobx-react";
 import { useEffect } from "react";
@@ -30,7 +32,12 @@ const ShowContacts = observer((props) => {
     </ListItem>
   ));
 
-  return <List>{contacts}</List>;
+  return (
+    <Container maxWidth="sm">
+      <Box sx={{ my: 4 }}></Box>
+      <List>{contacts}</List>
+    </Container>
+  );
 });
 
 export { ShowContacts };
