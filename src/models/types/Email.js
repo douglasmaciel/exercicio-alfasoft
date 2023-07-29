@@ -2,7 +2,7 @@ import Joi from "joi";
 
 class Email {
   #value;
-  #schema = Joi.string().email();
+  #schema = Joi.string().email({ tlds: { allow: false } });
 
   constructor(value) {
     this.#value = value;

@@ -1,13 +1,16 @@
 import "./App.css";
-import { Container, Box, Typography } from "@mui/material";
+import { Container, Box } from "@mui/material";
+import { ShowContacts } from "./views/ShowContacts";
+import { ShowContactsVM } from "./viewModels/ShowContactsVM";
+import { ContactRepositoryFake } from "./repositories/ContactRepositoryFake";
 
 function App() {
+  const repository = new ContactRepositoryFake();
+  const vm = new ShowContactsVM(repository);
   return (
     <Container maxWidth="sm">
       <Box sx={{ my: 4 }}>
-        <Typography variant="h4" component="h1" gutterBottom>
-          Material UI Vite.js example
-        </Typography>
+        <ShowContacts vm={vm} />
       </Box>
     </Container>
   );
