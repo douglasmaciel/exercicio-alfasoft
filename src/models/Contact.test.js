@@ -60,4 +60,29 @@ describe("Contact", () => {
       }).toThrow("Invalid Name");
     }
   );
+
+  it.each([
+    "",
+    "1",
+    "12",
+    "12345",
+    "123456",
+    "1234567",
+    "12345678",
+    "123a56789",
+  ])(
+    "should throw with a contact number different from 9 digits",
+    (invalidContactNumber) => {
+      const id = uuid();
+      expect(() => {
+        new Contact(
+          id,
+          "valid name",
+          invalidContactNumber,
+          "valid@email.com",
+          "valid-picture"
+        );
+      }).toThrow("Invalid ContactNumber");
+    }
+  );
 });
