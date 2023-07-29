@@ -44,4 +44,20 @@ describe("Contact", () => {
       );
     }).toThrow("Invalid Id");
   });
+
+  it.each(["", "a", "ab", "abc", "abcd", "abcde"])(
+    "should throw with a name lesser or equal than 5 characters",
+    (invalidName) => {
+      const id = uuid();
+      expect(() => {
+        new Contact(
+          id,
+          invalidName,
+          "123456789",
+          "valid@email.com",
+          "valid-picture"
+        );
+      }).toThrow("Invalid Name");
+    }
+  );
 });

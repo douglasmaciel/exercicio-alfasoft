@@ -1,4 +1,5 @@
 import { Id } from "./types/Id";
+import { Name } from "./types/Name";
 
 class Contact {
   #id;
@@ -9,7 +10,7 @@ class Contact {
 
   constructor(id, name, contact, email, picture) {
     this.#id = new Id(id);
-    this.#name = name;
+    this.#name = new Name(name);
     this.#contact = contact;
     this.#email = email;
     this.#picture = picture;
@@ -25,7 +26,7 @@ class Contact {
   }
 
   get name() {
-    return this.#name;
+    return this.#name.value;
   }
 
   get contact() {
