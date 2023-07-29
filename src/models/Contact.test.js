@@ -85,4 +85,17 @@ describe("Contact", () => {
       }).toThrow("Invalid ContactNumber");
     }
   );
+
+  it("should throw with invalid email", () => {
+    const id = uuid();
+    expect(() => {
+      new Contact(
+        id,
+        "valid name",
+        "123456789",
+        "invalid@email",
+        "valid-picture"
+      );
+    }).toThrow("Invalid Email");
+  });
 });
