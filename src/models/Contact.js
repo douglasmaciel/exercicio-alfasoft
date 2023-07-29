@@ -2,6 +2,7 @@ import { Id } from "./types/Id";
 import { Name } from "./types/Name";
 import { ContactNumber } from "./types/ContactNumber";
 import { Email } from "./types/Email";
+import { Picture } from "./types/Picture";
 
 class Contact {
   #id;
@@ -15,7 +16,7 @@ class Contact {
     this.#name = new Name(name);
     this.#contactNumber = new ContactNumber(contact);
     this.#email = new Email(email);
-    this.#picture = picture;
+    this.#picture = new Picture(picture);
   }
 
   static create(name, contact, email, picture) {
@@ -40,7 +41,7 @@ class Contact {
   }
 
   get picture() {
-    return this.#picture;
+    return this.#picture.value;
   }
 }
 

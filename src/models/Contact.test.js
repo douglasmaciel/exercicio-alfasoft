@@ -98,4 +98,11 @@ describe("Contact", () => {
       );
     }).toThrow("Invalid Email");
   });
+
+  it("should throw with empty picture", () => {
+    const id = uuid();
+    expect(() => {
+      new Contact(id, "valid name", "123456789", "valid@email.com", "");
+    }).toThrow("Invalid Picture");
+  });
 });
